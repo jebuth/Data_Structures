@@ -1,0 +1,5 @@
+/Users/justin/Projects/Data_Structures/Data_Structures/bin/Debug/Data_Structures.exe
+/Users/justin/Projects/Data_Structures/Data_Structures/bin/Debug/Data_Structures.pdb
+/Users/justin/Projects/Data_Structures/Data_Structures/obj/x86/Debug/Data_Structures.csproj.CoreCompileInputs.cache
+/Users/justin/Projects/Data_Structures/Data_Structures/obj/x86/Debug/Data_Structures.exe
+/Users/justin/Projects/Data_Structures/Data_Structures/obj/x86/Debug/Data_Structures.pdb
