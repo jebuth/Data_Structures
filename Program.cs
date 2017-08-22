@@ -64,10 +64,25 @@ namespace Data_Structures
             Console.WriteLine(q.ToString());
         }
 
+        static public void BSTTest(){
+            BST<int> bst = new BST<int>();
+            bst.Add(0);
+            bst.Add(1);
+            bst.Add(5);
+            bst.Add(3);
+
+            bst.PrintInOrder();
+            if (bst.Contains(9))
+                Console.Write("true");
+            else
+                Console.Write("False");
+        }
+
         public static void Main(string[] args)
         {
             //StackTest();
-            QueueTest();
+            //QueueTest();
+            BSTTest();
         }
     }
 }

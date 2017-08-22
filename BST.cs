@@ -3,8 +3,8 @@ namespace Data_Structures
 {
     public class BST<T> where T : IComparable
     {
-        private int NodeCount = 0;
-        private Node root = null;
+        private int NodeCount;
+        private Node root;
 
         private class Node{
             public T data;
@@ -17,9 +17,19 @@ namespace Data_Structures
             }
         }
 
+        // Default constructor
         public BST()
         {
+            NodeCount = 0;
+            root = null;
         }
+
+        // Overload constructor 
+		public BST(T data)
+		{
+			NodeCount = 1;
+            root = new Node(null, null, data);
+		}
 
         public int Size(){
             return NodeCount;
@@ -75,8 +85,9 @@ namespace Data_Structures
             else if(CompareValue > 0)
             {
                 node.right = Remove(node.right, data);
-            } else {
-
+            } 
+            // Target node is found to be current node!
+            else {
                 // Only right subtree or no subtree at all.
                 // Swap victim node with its right child
                 if (node.left == null)
@@ -97,10 +108,8 @@ namespace Data_Structures
 
                     node.right = Remove(node.right, temp.data);
                 }
-            
             }
             return node;
-
         }
 
         private Node MostLeft(Node node){
@@ -111,6 +120,7 @@ namespace Data_Structures
             return Current;
         }
 
+        // Return true if BST contains data in param ==
         public bool Contains(T data){
             return Contains(root, data);
         }
@@ -128,8 +138,49 @@ namespace Data_Structures
                 return true;
             }
         }
+        // =============================================
 
-        public int Height(){
+        // In Order ====================================
+        public void PrintInOrder(){
+            InOrder(this.root);
+        }
+		private void InOrder(Node root)
+		{
+            if (root == null) return;
+            InOrder(root.left);
+            Console.Write(root.data.ToString() + ", ");
+            InOrder(root.right);
+		}
+		// =============================================
+		// Pre Order ====================================
+		public void PrintPreOrder()
+		{
+			PreOrder(this.root);
+		}
+		private void PreOrder(Node root)
+		{
+			if (root == null) return;
+			Console.Write(root.data.ToString() + ", ");
+            InOrder(root.left);
+			InOrder(root.right);
+		}
+		// =============================================
+		// Post Order ====================================
+		public void PrintPostOrder()
+		{
+			PostOrder(this.root);
+		}
+		private void PostOrder(Node root)
+		{
+			if (root == null) return;
+			InOrder(root.left);
+            InOrder(root.right);
+            Console.Write(root.data.ToString() + ", ");
+		}
+		// =============================================
+
+
+		public int Height(){
             return Height(root);
         }
 
@@ -139,9 +190,8 @@ namespace Data_Structures
             return Math.Max(Height(node.left), Height(node.right)) + 1;
         }
 
-        public int CompareTo(object obj)
-        {
-            throw new NotImplementedException();
-        }
+
+
+
     }
 }
